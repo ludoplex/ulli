@@ -9,8 +9,7 @@ if %errorlevel% neq 0 (
 )
 
 :: Now running as admin – launch the PowerShell script
-powershell.exe -ExecutionPolicy Bypass -File "%~dp0ulli-windows.ps1"
+powershell.exe -ExecutionPolicy Bypass -File "%~dp0depenguinator-windows.ps1"
 pause
-
 
 

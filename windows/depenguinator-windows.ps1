@@ -14,7 +14,7 @@ if (-not ([Security.Principal.WindowsPrincipal] [Security.Principal.WindowsIdent
             "-File", "`"$PSCommandPath`""
         ) -Verb RunAs
     } catch {
-        Write-Host "ERROR: Administrator privileges are required to run ULLI." -ForegroundColor Red
+        Write-Host "ERROR: Administrator privileges are required to run depenguinator." -ForegroundColor Red
         Write-Host "Please right-click the script and select 'Run as Administrator'."
         Read-Host "Press Enter to exit"
     }
@@ -131,7 +131,7 @@ $script:MaxAvailableGB = 10000
 
 # Create main form
 $form = New-Object System.Windows.Forms.Form
-$form.Text = "USB-less Linux Installer for Windows"
+$form.Text = "depenguinator USB-less Linux Installer for Windows"
 $form.Size = New-Object System.Drawing.Size(720, 640)
 $form.StartPosition = "CenterScreen"
 $form.FormBorderStyle = "FixedSingle"
@@ -145,7 +145,7 @@ $boldFont = New-Object System.Drawing.Font("Segoe UI", 9, [System.Drawing.FontSt
 
 # Header label
 $headerLabel = New-Object System.Windows.Forms.Label
-$headerLabel.Text = "USB-less Linux Installer for Windows"
+$headerLabel.Text = "depenguinator USB-less Linux Installer for Windows"
 $headerLabel.Font = $headerFont
 $headerLabel.ForeColor = [System.Drawing.Color]::FromArgb(135, 185, 74)
 $headerLabel.Location = New-Object System.Drawing.Point(10, 10)
@@ -1171,7 +1171,7 @@ function Show-DiskPlan {
                         $changeLines += "  To use this disk, you would need to:"
                         $changeLines += "    - Back up your data from the drive"
                         $changeLines += "    - Shrink or delete the partition using Disk Management"
-                        $changeLines += "    - Re-run ULLI (it will detect the free space)"
+                        $changeLines += "    - Re-run depenguinator (it will detect the free space)"
                     } else {
                         $changeLines += "  No unallocated space available on this disk."
                     }
@@ -1240,8 +1240,33 @@ function Show-DiskPlan {
                     return
                 }
             } elseif ($strat -eq "other_drive_shrink") {
-                # Already validated
+                # ── power warning dialog ────────────────────────────
+                $powerConfirm = [System.Windows.Forms.MessageBox]::Show(
+                    "Keep your computer plugged in!`n`n" +
+                    "A partition resize is about to begin. Power loss during this process " +
+                    "could corrupt your partition table.`n`n" +
+                    "Make sure your computer is connected to AC power before continuing.",
+                    "Power Requirement Warning",
+                    [System.Windows.Forms.MessageBoxButtons]::OKCancel,
+                    [System.Windows.Forms.MessageBoxIcon]::Warning
+                )
+                if ($powerConfirm -ne [System.Windows.Forms.DialogResult]::OK) {
+                    return
+                }
             } elseif ($strat -eq "wipe_disk") {
+                # ── power warning dialog ─────────────────────────────────
+                $powerConfirm = [System.Windows.Forms.MessageBox]::Show(
+                    "Keep your computer plugged in!`n`n" +
+                    "A disk wipe and reformat is about to begin. Power loss during this process " +
+                    "could leave the target disk in an unusable state.`n`n" +
+                    "Make sure your computer is connected to AC power before continuing.",
+                    "Power Requirement Warning",
+                    [System.Windows.Forms.MessageBoxButtons]::OKCancel,
+                    [System.Windows.Forms.MessageBoxIcon]::Warning
+                )
+                if ($powerConfirm -ne [System.Windows.Forms.DialogResult]::OK) {
+                    return
+                }
                 $wipeConfirm = [System.Windows.Forms.MessageBox]::Show(
                     "WARNING: You are about to ERASE ALL DATA on Disk $($selDisk.Number)!`n`n" +
                     "This will:`n" +

@@ -394,7 +394,7 @@ class InstallerApp(Gtk.Application):
 class InstallerWindow(Gtk.ApplicationWindow):
     # ── init ──────────────────────────────────────────────────────────────────
     def __init__(self, **kw):
-        super().__init__(title="ULLI USB-less Linux Installer", **kw)
+        super().__init__(title="depenguinator USB-less Linux Installer", **kw)
         self.set_default_size(760, 820)
         self.set_resizable(False)
 
@@ -525,7 +525,7 @@ class InstallerWindow(Gtk.ApplicationWindow):
 
         # ── Header ──
         hdr = Gtk.Box(orientation=Gtk.Orientation.VERTICAL, spacing=2)
-        title = Gtk.Label(label="⚙ ULLI USB-less Linux Installer")
+        title = Gtk.Label(label="⚙ depenguinator USB-less Linux Installer")
         title.get_style_context().add_class("header-title")
         sub = Gtk.Label(label="Dual-boot installer  ·  no USB required")
         sub.get_style_context().add_class("sub-header")
@@ -1267,7 +1267,8 @@ class InstallerWindow(Gtk.ApplicationWindow):
                         change_lines.append("    – Back up your data from the drive")
                         change_lines.append(
                             "    – Shrink/delete the partition using GParted or parted")
-                        change_lines.append("    – Re-run ULLI (it will detect the free space)")
+                        change_lines.append(
+                            "    – Re-run depenguinator (it will detect the free space)")
                     else:
                         change_lines.append("  No unallocated space available on this disk.")
 
@@ -2235,7 +2236,7 @@ class InstallerWindow(Gtk.ApplicationWindow):
         # Desktop environments (via udisks2) race to probe and mount new
         # partitions, which blocks mkfs with "Device or resource busy".
         # We must install inhibitors BEFORE creating any partitions.
-        udev_rule_path = "/run/udev/rules.d/99-ulli-inhibit.rules"
+        udev_rule_path = "/run/udev/rules.d/99-depenguinator-inhibit.rules"
         disk_basename = os.path.basename(disk_path)
         udev_rule_installed = False
         udisks_was_running = False

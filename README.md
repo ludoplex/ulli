@@ -1,4 +1,4 @@
-# ULLI:    USB-less Linux Installer
+# depenguinator: USB-less Linux Installer
 
 **Donations/tips:** [https://ko-fi.com/rltvty](https://ko-fi.com/rltvty)
 
@@ -14,19 +14,19 @@ Acknowledgement: AI (mostly Claude) was used in the development of this software
 
 ## Running under Linux
 
-Download `ulli-linux.py`, right click on `ulli-linux.py`, click properties, and then, under the permissions tab check "Allow this file to run as a program". Then double click on the `.py` and click "Run in Terminal".
+Download `depenguinator-linux.py`, right click on `depenguinator-linux.py`, click properties, and then, under the permissions tab check "Allow this file to run as a program". Then double click on the `.py` and click "Run in Terminal".
 
 Alternatively just run this code in your terminal, in the same folder you downloaded to:
 
 ```
-sudo python3 ulli-linux.py
+sudo python3 depenguinator-linux.py
 ```
 
 ## Running under Windows
 
-Download `ulli-windows.zip`, extract all files, right click on `run-ulli-windows.bat`, and then run the program as administrator.
+Download `depenguinator-windows.zip`, extract all files, right click on `run-depenguinator-windows.bat`, and then run the program as administrator.
 
-Alternatively you can turn off smart app control under windows security, and then simply double click on `run-ulli-windows.bat` to run the program.
+Alternatively you can turn off smart app control under windows security, and then simply double click on `run-depenguinator-windows.bat` to run the program.
 
 ---
 
@@ -38,7 +38,7 @@ Alternatively you can turn off smart app control under windows security, and the
 
 - Currently the installer supports the installation of **Linux Mint 22.3 Cinnamon**, **Ubuntu 24.04.4 LTS**, **Kubuntu 24.04.4 LTS**, **Debian Live 13.3.0 KDE**, and **Fedora 43 - KDE Plasma Desktop**. You may also use your own `.iso` files, but Debian and Fedora based distros don't work for now. Linux Mint Debian Edition is an exception.
 
-- ulli attempts to set Linux as the default boot entry automatically, but this doesn't work on all systems. You may have to select Linux as the default boot option in the BIOS. The BIOS is accessible during startup by pressing F2, DEL, F10, ESC, F1, F12, or F11. Refer to your PC or motherboard's documentation for more information.
+- depenguinator attempts to set Linux as the default boot entry automatically, but this doesn't work on all systems. You may have to select Linux as the default boot option in the BIOS. The BIOS is accessible during startup by pressing F2, DEL, F10, ESC, F1, F12, or F11. Refer to your PC or motherboard's documentation for more information.
 
 ---
 

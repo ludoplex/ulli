@@ -1,8 +1,8 @@
-# ULLI Agent Guidelines
+# depenguinator Agent Guidelines
 
 ## Project Overview
 
-ULLI (USB-less Linux Installer) is a tool for installing Linux distributions directly to a hard drive without a USB stick. It provides GUI interfaces for both Linux (Python/GTK 3) and Windows (PowerShell/WindowsForms) platforms.
+depenguinator (USB-less Linux Installer) is a tool for installing Linux distributions directly to a hard drive without a USB stick. It provides GUI interfaces for both Linux (Python/GTK 3) and Windows (PowerShell/WindowsForms) platforms.
 
 **Supported distributions:** Linux Mint 22.3, Ubuntu 24.04.4, Kubuntu 24.04.4, Debian Live 13.3.0, Fedora 43 KDE
 
@@ -29,12 +29,12 @@ sudo apt install python3-gi gir1.2-gtk-3.0 gir1.2-vte-2.91 parted btrfs-progs gr
 
 **Linux:**
 ```bash
-sudo python3 linux/ulli-linux.py
+sudo python3 linux/depenguinator-linux.py
 ```
 
 **Windows:**
 ```powershell
-powershell -ExecutionPolicy Bypass -File windows/run-ulli-windows.bat
+powershell -ExecutionPolicy Bypass -File windows/run-depenguinator-windows.bat
 # Or run as Administrator
 ```
 
@@ -42,7 +42,7 @@ powershell -ExecutionPolicy Bypass -File windows/run-ulli-windows.bat
 
 **Linux:**
 ```bash
-sudo python3 linux/ulli-linux.py --check-deps
+sudo python3 linux/depenguinator-linux.py --check-deps
 ```
 
 **Windows:**
