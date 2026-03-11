@@ -1240,8 +1240,33 @@ function Show-DiskPlan {
                     return
                 }
             } elseif ($strat -eq "other_drive_shrink") {
-                # Already validated
+                # ── power warning dialog ────────────────────────────
+                $powerConfirm = [System.Windows.Forms.MessageBox]::Show(
+                    "Keep your computer plugged in!`n`n" +
+                    "A partition resize is about to begin. Power loss during this process " +
+                    "could corrupt your partition table.`n`n" +
+                    "Make sure your computer is connected to AC power before continuing.",
+                    "Power Requirement Warning",
+                    [System.Windows.Forms.MessageBoxButtons]::OKCancel,
+                    [System.Windows.Forms.MessageBoxIcon]::Warning
+                )
+                if ($powerConfirm -ne [System.Windows.Forms.DialogResult]::OK) {
+                    return
+                }
             } elseif ($strat -eq "wipe_disk") {
+                # ── power warning dialog ─────────────────────────────────
+                $powerConfirm = [System.Windows.Forms.MessageBox]::Show(
+                    "Keep your computer plugged in!`n`n" +
+                    "A disk wipe and reformat is about to begin. Power loss during this process " +
+                    "could leave the target disk in an unusable state.`n`n" +
+                    "Make sure your computer is connected to AC power before continuing.",
+                    "Power Requirement Warning",
+                    [System.Windows.Forms.MessageBoxButtons]::OKCancel,
+                    [System.Windows.Forms.MessageBoxIcon]::Warning
+                )
+                if ($powerConfirm -ne [System.Windows.Forms.DialogResult]::OK) {
+                    return
+                }
                 $wipeConfirm = [System.Windows.Forms.MessageBox]::Show(
                     "WARNING: You are about to ERASE ALL DATA on Disk $($selDisk.Number)!`n`n" +
                     "This will:`n" +
