@@ -1243,8 +1243,8 @@ function Show-DiskPlan {
                       # ── power warning dialog ────────────────────────────
                      $powerConfirm = [System.Windows.Forms.MessageBox]::Show(
                          "Keep your computer plugged in!`n`n" +
-                         "A partition resize is about to begin. Power loss during this process " +
-                         "could corrupt your partition table.`n`n" +
+                         "A disk wipe and reformat is about to begin. Power loss during this process " +
+                         "could leave the target disk in an unusable state.`n`n" +
                          "Make sure your computer is connected to AC power before continuing.",
                          "Power Requirement Warning",
                          [System.Windows.Forms.MessageBoxButtons]::OKCancel,
