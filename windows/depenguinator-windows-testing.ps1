@@ -1267,8 +1267,7 @@ function Show-DiskPlan {
                 if ($powerConfirm -ne [System.Windows.Forms.DialogResult]::OK) {
                     return
                 }
-                     
-                     $wipeConfirm = [System.Windows.Forms.MessageBox]::Show(
+                $wipeConfirm = [System.Windows.Forms.MessageBox]::Show(
                     "WARNING: You are about to ERASE ALL DATA on Disk $($selDisk.Number)!`n`n" +
                     "This will:`n" +
                     "  - Destroy the partition table`n" +
